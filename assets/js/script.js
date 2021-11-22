@@ -129,10 +129,12 @@ var taskButtonHandler = function(event){
 
 var deleteTask = function(taskId){
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+    console.log(taskId);
     taskSelected.remove();
 }
 var editTask = function(taskId){
     //get task list item element
+    console.log(taskId)
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
 
     //get content from task name and type
@@ -161,12 +163,13 @@ var completeEditTask = function(taskName, taskType, taskId){
     document.querySelector("#save-task").textContent = "Add Task";
 }
 var taskStatusChangeHandler = function(event){
-    console.log(event.target.value);
     //get task item id
-    var taskId = event.target.getAttribute("#data-task-id");
+    
+    var taskId = event.target.getAttribute("data-task-id");
     
     //find the parent task item elemend based on id
-    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']")
+    console.log(taskSelected);
     
     //get currently selected option and convert ot lowercase
     var statusValue = event.target.value.toLowerCase();
